@@ -21,9 +21,16 @@ class Mineral:
     def calcular_densidad(self):
         # Calcular la densidad en unidades SI (gramos por centímetro cúbico)
         return self.specific_gravity * 1000
+    
     def visualizar_color(self):
-        # Visualizar el color utilizando matplotlib
+        # Visualizar el color utilizando 
         plt.figure()
         plt.imshow([[self.color]])
         plt.axis('off')
         plt.show()
+
+    def imprimir_info(self):
+        # Imprimir la información en la consola
+        print(f"Dureza: {self.dureza}")
+        print(f"Tipo de Rompimiento: {'Fractura' if self.rompimiento_fractura else 'Escisión'}")
+        print(f"Sistema de Organización de los Átomos: {self.sistema_cristalino}")
