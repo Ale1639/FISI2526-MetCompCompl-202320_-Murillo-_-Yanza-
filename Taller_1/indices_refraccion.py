@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+import glob
 
 def tuplasdata (archivo):
     listaarreglo=[]
@@ -27,10 +28,7 @@ def tuplasdata (archivo):
     return arreglo
 print(tuplasdata("Taller_1/Vidrio/BF1.yml"))
 
-X= "Taller_1/Plásticos Comerciales/Kapton.yml"
-print(X)
-
-def ejesgraf (archivo):
+def crear_grafico (archivo):
     arraytuplas=tuplasdata(archivo)
     nombre = os.path.splitext(os.path.basename(archivo))[0]
     x=[]
@@ -44,12 +42,25 @@ def ejesgraf (archivo):
     ejey=(np.array(y))
     npromedio=round(n/len(arraytuplas),3)
     desvest=round(np.std(ejey),3)
-    fig,axs = plt.subplots(figsize=(5,4.5))
+    fig,axs = plt.subplots(figsize=(6,4.5))
     axs.scatter(ejex,ejey,s=8)
     axs.set_ylabel('Índice de Refración (n)')
     axs.set_xlabel('Longitud de Onda (nm)')
-    axs.set_title(nombre + " - n Promedio: " + str(npromedio) + " - Desviación Estandar: " +str(desvest))
-    plt.show()
-    return None
+    axs.set_title(nombre + "\n n Promedio: " + str(npromedio) + " - Desviación Estandar: " +str(desvest))
+    fig.savefig(archivo.replace(".yml",".png"))
+    return axs
 
-print(ejesgraf(X))
+Kaptonruta= "Taller_1/Plásticos Comerciales/Kapton.yml"
+NOA1348ruta="Taller_1/Adhesivos Ópticos/NOA1348.yml"
+crear_grafico(Kaptonruta)
+plt.show()
+crear_grafico(NOA1348ruta)
+plt.show()
+
+def crear_imagenes_graficas():
+    rutas=glob.glob("**/*.yml", recursive=True)
+    for i in rutas:
+        crear_grafico(i)
+
+crear_imagenes_graficas()
+    
