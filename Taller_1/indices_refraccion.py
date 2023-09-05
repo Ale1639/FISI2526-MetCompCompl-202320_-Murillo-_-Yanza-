@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
 import os
 import glob
 
@@ -63,4 +62,3 @@ def crear_imagenes_graficas():
         crear_grafico(i)
         plt.close()
 crear_imagenes_graficas()
-    
