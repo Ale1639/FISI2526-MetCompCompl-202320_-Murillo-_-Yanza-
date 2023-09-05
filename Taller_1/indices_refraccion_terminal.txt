@@ -9,3 +9,4 @@ link=$(echo "$enlace")
 mkdir -p "$categoria"
 wget -O "$categoria/$material.yml" $link
 done < indices_refraccion.csv
+rm -r Categoría/

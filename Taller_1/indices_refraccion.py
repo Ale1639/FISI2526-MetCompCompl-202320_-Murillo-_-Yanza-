@@ -61,6 +61,6 @@ def crear_imagenes_graficas():
     rutas=glob.glob("**/*.yml", recursive=True)
     for i in rutas:
         crear_grafico(i)
-
+        plt.close()
 crear_imagenes_graficas()
     
