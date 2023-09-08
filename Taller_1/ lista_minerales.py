@@ -16,9 +16,9 @@ with open("FISI2526-MetCompCompl-202320_-Murillo-_-Yanza-/Taller_1/minerales.txt
     minerales=np.array(minerales)
 
 
-contador_silicatos = sum(1 for mineral in minerales if mineral.es_silicato())
+contador_silicatos = sum(1 for mineral in minerales if Mineral.es_silicato(mineral))
 
-total_densidad = sum(float(mineral.calcular_densidad()) for mineral in minerales)
+total_densidad = sum(float(Mineral.calcular_densidad(mineral)) for mineral in minerales)
 
 densidad_promedio = total_densidad / len(minerales)
 
