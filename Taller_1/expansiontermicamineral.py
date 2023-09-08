@@ -6,7 +6,7 @@ from mineral import Mineral
 
 class ExpansionTermicaMineral (Mineral):
     def __init__(self, archivo):
-        linea= pd.read_csv(archivo,",")
+        linea= pd.read_csv(archivo,sep=",")
         self.temperatura=np.array(linea["celsius_temperature"])
         self.volumen= np.arrray(linea["volume_cc"])
     
